@@ -9,8 +9,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-import java.time.Duration;
-
 public class Task_06 {
     /*
     Go to http://test.rubywatir.com/ifelse.php
@@ -50,9 +48,8 @@ public class Task_06 {
             WebElement submitButton = driver.findElement(By.xpath("//input[contains(@name,"+displayedNumber+")]"));
             submitButton.click();
 
-            // Wait to adjust for the page behavior
-            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(1));
         }
+        System.out.println("Test is done");
     }
 
 }
