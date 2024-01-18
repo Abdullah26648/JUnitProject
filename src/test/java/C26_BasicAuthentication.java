@@ -49,15 +49,15 @@ public class C26_BasicAuthentication {
     @Test
     public void basicAuthenticationTest(){
 
-//        Go to URL: https://the-internet.herokuapp.com/basic_auth
-//        Username: admin
-//        Password: admin
-//        Syntax:  driver.get("https://USERNAME:PASSWORD@URL");
-//        Authenticate using the above method and test data.
-//        https://admin:admin@the-internet.herokuapp.com/basic_auth
+    //  Go to URL: https://the-internet.herokuapp.com/basic_auth
+    //  Username: admin
+    //  Password: admin
+    //  Syntax:  driver.get("https://USERNAME:PASSWORD@URL");
+    //  Authenticate using the above method and test data.
+    //  https://admin:admin@the-internet.herokuapp.com/basic_auth
         driver.get("https://admin:admin@the-internet.herokuapp.com/basic_auth");
 
-//        Verify the congratulations message.
+    //  Verify the congratulations message.
         String congratulationsMessage = driver.findElement(By.tagName("p")).getText();
         assertTrue(congratulationsMessage.contains("Congratulations"));
 
