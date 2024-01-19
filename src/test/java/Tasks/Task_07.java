@@ -17,8 +17,9 @@ public class Task_07 extends TestBase {
     @Test
     public void test() {
         driver.get("https://testpages.eviltester.com/styled/find-by-playground-test.html");
-        List<WebElement> plist=driver.findElements(By.xpath("//p"));
+        List<WebElement> plist=driver.findElements(By.xpath("//p "));
         System.out.println("plist.size() = " + plist.size());
         assertEquals("There are no 42 elements with p tag in this website",42,plist.size());
     }
+
 }

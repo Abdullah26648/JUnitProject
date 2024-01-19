@@ -23,4 +23,5 @@ public class Task_08 extends TestBase {
         assertTrue("Not all checkboxes are selected!", checkboxes.stream().allMatch(WebElement::isSelected));
 
     }
+
 }

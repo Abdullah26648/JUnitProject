@@ -56,10 +56,10 @@ public class Task_02 {
         String youtubeUrl = driver.getCurrentUrl();
 
         // Check if the title contains the word "YouTube"
-        assert youtubeTitle.contains("YouTube") : "Title does not contain YouTube";
+        assert driver.getTitle().contains("YouTube") : "Title does not contain YouTube";
 
         // Check if the URL contains the word "youtube"
-        assert youtubeUrl.contains("youtube") : "URL does not contain youtube";
+        assert driver.getTitle().contains("youtube") : "URL does not contain youtube";
 
         // Wait for 3 seconds
         Thread.sleep(3000);
@@ -100,4 +100,5 @@ public class Task_02 {
         Thread.sleep(3000);
         driver.quit();
     }
+
 }
