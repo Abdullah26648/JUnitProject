@@ -21,15 +21,16 @@ public class Task_14 extends TestBase {
   */
     @Test
     public void Task_14 () {
-//        Go to https://demo.guru99.com/test/drag_drop.html
+//      Go to https://demo.guru99.com/test/drag_drop.html
 
         driver.get("https://demo.guru99.com/test/drag_drop.html");
+
         Actions actions = new Actions(driver);
 
-//        Drag orange elements on proper boxes below
+//      Drag orange elements on proper boxes below
 
-        WebElement first5000 = driver.findElement(By.xpath("/html/body/section/div/div/main/div/div/div/div/div/div/div[1]/div/ul/li[2]/a"));
-        WebElement second5000 = driver.findElement(By.xpath("/html/body/section/div/div/main/div/div/div/div/div/div/div[1]/div/ul/li[4]/a"));
+        WebElement first5000 = driver.findElement(By.xpath("//*[@class='block13 ui-draggable'][1]"));
+        WebElement second5000 = driver.findElement(By.xpath("//*[@class='block13 ui-draggable'][2]"));
         WebElement bank = driver.findElement(By.id("credit2"));
         WebElement sales = driver.findElement(By.id("credit1"));
 

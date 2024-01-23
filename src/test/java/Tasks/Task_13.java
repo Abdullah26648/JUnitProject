@@ -23,7 +23,7 @@ public class Task_13 extends TestBase {
         WebElement slider = driver.findElement(By.xpath("/html/body/div/div/section/div[1]/div[2]/div[2]/div[1]/div/div[1]/div/span[1]"));
 
         Actions actions = new Actions(driver);
-        actions.dragAndDropBy(slider,0,-34).perform();
         actions.dragAndDropBy(slider,0,34).perform();
+        actions.dragAndDropBy(slider,0,-34).perform();
     }
 }
