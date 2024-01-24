@@ -22,7 +22,6 @@ public class ActionsMetodlarISlevleri {
    Actions actions = new Actions(driver);
    actions.sendKeys(element, "Hello", Keys.ENTER).perform();
 
-
 */
 
 }
