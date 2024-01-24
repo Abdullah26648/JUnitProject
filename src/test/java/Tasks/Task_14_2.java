@@ -11,7 +11,7 @@ import java.util.List;
 
 import static org.junit.Assert.assertTrue;
 
-public class odev14 extends TestBase {
+public class Task_14_2 extends TestBase {
     /*
    Given
        Go to https://demo.guru99.com/test/drag_drop.html
