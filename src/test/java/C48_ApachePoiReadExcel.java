@@ -36,7 +36,7 @@ public class C48_ApachePoiReadExcel extends TestBase {
 
         // Add the excel file on the resources folder.
         // Open the file.
-        FileInputStream fileInputStream = new FileInputStream(System.getProperty("user.dir")+"\\resources\\Capitals.xlsx");
+        FileInputStream fileInputStream = new FileInputStream(System.getProperty("user.dir") + "\\resources\\Capitals.xlsx");
 
         // Open the workbook using file input stream.
         Workbook workbook = WorkbookFactory.create(fileInputStream);
@@ -61,12 +61,12 @@ public class C48_ApachePoiReadExcel extends TestBase {
         assertEquals("USA", row2cell1.toString());
 
         // Go to 3rd row and print 2nd cell
-        System.out.println("row3cell2: "+sheet1.getRow(2).getCell(1));
+        System.out.println("row3cell2: " + sheet1.getRow(2).getCell(1));
 
         // Find the number of used row.
         int lastRowNum = sheet1.getLastRowNum();
         System.out.println("lastRowNum = " + lastRowNum);//Son kullanılan satırın indeksi
-        System.out.println("Kullanılan satır sayısı: "+(lastRowNum+1));
+        System.out.println("Kullanılan satır sayısı: " + (lastRowNum + 1));
 
         //Sadece fiziki kullanılmış satır sayısı:
         int physicalNumberOfRows = sheet1.getPhysicalNumberOfRows();
@@ -75,12 +75,12 @@ public class C48_ApachePoiReadExcel extends TestBase {
         // Print country, capital value pairs as map object.
         Map<String, String> country_capital = new HashMap<>();
 
-        for (int i = 1; i<=lastRowNum; i++){
+        for (int i = 1; i <= lastRowNum; i++) {
 
             String country = sheet1.getRow(i).getCell(0).toString();
             String capital = sheet1.getRow(i).getCell(1).toString();
 
-            country_capital.put(country, capital );
+            country_capital.put(country, capital);
         }
 
         System.out.println("country_capital = " + country_capital);
@@ -91,7 +91,7 @@ public class C48_ApachePoiReadExcel extends TestBase {
 
         //Reusable metod ile Hücre değeri çağıralım:
 
-        Cell cellValue = getCellValue("Capitals","Sheet1",6, 1 );
+        Cell cellValue = getCellValue("Capitals", "Sheet1", 6, 1);
         System.out.println("cellValue = " + cellValue);
 
     }

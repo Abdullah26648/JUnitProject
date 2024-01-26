@@ -1,0 +1,6 @@
+2024-01-26 02:50:52 FATAL C56_Log4J_Properties:16 - Fatal Message
+2024-01-26 02:50:52 ERROR C56_Log4J_Properties:17 - Error Mesage
+2024-01-26 02:50:52 WARN  C56_Log4J_Properties:18 - Warn Message
+2024-01-26 02:50:52 INFO  C56_Log4J_Properties:19 - Info Message
+2024-01-26 02:50:52 DEBUG C56_Log4J_Properties:20 - Debug Message
+2024-01-26 02:50:52 TRACE C56_Log4J_Properties:21 - Trace Message

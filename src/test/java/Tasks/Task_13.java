@@ -12,7 +12,7 @@ public class Task_13 extends TestBase {
 	Shift 34 units to the up and 34 units to the down on the vertical axis.
 */
     @Test
-    public void Task_13() {
+    public void Task_13() throws InterruptedException {
 
 //        Go to URL: https://foundation.zurb.com/sites/docs/v/5.5.3/components/range_slider.html
 
@@ -23,7 +23,10 @@ public class Task_13 extends TestBase {
         WebElement slider = driver.findElement(By.xpath("/html/body/div/div/section/div[1]/div[2]/div[2]/div[1]/div/div[1]/div/span[1]"));
 
         Actions actions = new Actions(driver);
+        Thread.sleep(3000);
         actions.dragAndDropBy(slider,0,34).perform();
+        Thread.sleep(3000);
         actions.dragAndDropBy(slider,0,-34).perform();
+        Thread.sleep(3000);
     }
 }

@@ -31,7 +31,7 @@ public class C50_WriteExcelFirstnameLastname {
         row2.createCell(1).setCellValue("Can");
 
         //Kalan 99 ismi loop ile yazalım
-        for (int i = 2; i<101; i++){
+        for (int i = 2; i<100; i++){
             fnameLname.createRow(i).createCell(0).setCellValue(Faker.instance().name().firstName());
             fnameLname.getRow(i).createCell(1).setCellValue(Faker.instance().name().lastName());
         }
@@ -40,6 +40,9 @@ public class C50_WriteExcelFirstnameLastname {
         workbook.write(new FileOutputStream(filePath));
 
         //Ödev: Adres sütunu ekleyip her kişiye adres giriniz
+
+
+
 
     }
 
