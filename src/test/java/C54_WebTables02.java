@@ -7,11 +7,11 @@ import java.util.List;
 
 public class C54_WebTables02 extends TestBase {
     //Go to URL: http://demo.guru99.com/test/web-table-element.php
-    //To find first row of table
-    //To get 3rd row's 3rd column data
-    //Get all the values of a Dynamic Table
+//To find first row of table
+//To get 3rd row's 3rd column data
+//Get all the values of a Dynamic Table
 
-    @Test   //Bir web table'ı locate edip içindeki row ve cell değerlerine bu web element ile ulaşabiliriz
+    @Test//Bir web table'ı locate edip içindeki row ve cell değerlerine bu web element ile ulaşabiliriz
     public void webTableTest(){
         //Go to URL: http://demo.guru99.com/test/web-table-element.php
         driver.get("http://demo.guru99.com/test/web-table-element.php");
@@ -34,11 +34,15 @@ public class C54_WebTables02 extends TestBase {
             List<WebElement> rowCells = w.findElements(By.xpath(".//td"));
             for (WebElement u : rowCells){
 
-                System.out.println("Cell: "+u.getText());
+                System.out.println(u.getText());
 
             }
 
         }
+
+        //Reusable metod kullanarak yukarıda locate edilen table'ın 5. satırının 4. sütunun yazdırınız.
+        String r5c4 = getTableCell(webTable, 5, 4);
+        System.out.println("r5c4 = " + r5c4);
 
     }
 

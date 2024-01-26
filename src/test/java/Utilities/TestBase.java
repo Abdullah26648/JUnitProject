@@ -9,11 +9,10 @@ import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
 import org.junit.After;
 import org.junit.Before;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -104,6 +103,13 @@ public abstract class TestBase {
 
     }
 
+    //Bu metod parantez içinde belirtilen web table'ın istediğimiz satır ve sütunundaki değeri String olarak döner.
+    public String getTableCell(WebElement table, int row, int cell){
+
+        return table.findElement(By.xpath(".//tbody/tr["+row+"]/td["+cell+"]")).getText();
+
+    }
+
     public ExtentReports extentReportsSetUp() {
 
         // Extent report objelerimizi oluşturuyoruz
@@ -135,6 +141,14 @@ public abstract class TestBase {
         // extentReports.flush(); --> Test sonu raporun oluştutulması için unutulmamalıdır.
 
         return extentReports;
+
+    }
+
+    //Bu metod explicit wait kullanarak bir web elementi locate eder
+    public WebElement waitForVisibility(By by){
+
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(by));
 
     }
 

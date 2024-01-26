@@ -4,3 +4,41 @@
 2024-01-26 02:50:52 INFO  C56_Log4J_Properties:19 - Info Message
 2024-01-26 02:50:52 DEBUG C56_Log4J_Properties:20 - Debug Message
 2024-01-26 02:50:52 TRACE C56_Log4J_Properties:21 - Trace Message
+2024-01-26 18:35:55 FATAL C56_Log4J_Properties:16 - Fatal Message
+2024-01-26 18:35:55 ERROR C56_Log4J_Properties:17 - Error Mesage
+2024-01-26 18:35:55 WARN  C56_Log4J_Properties:18 - Warn Message
+2024-01-26 18:35:55 INFO  C56_Log4J_Properties:19 - Info Message
+2024-01-26 18:35:55 DEBUG C56_Log4J_Properties:20 - Debug Message
+2024-01-26 18:35:55 TRACE C56_Log4J_Properties:21 - Trace Message
+2024-01-26 20:07:18 FATAL C56_Log4J_Properties:16 - Fatal Message
+2024-01-26 20:07:18 ERROR C56_Log4J_Properties:17 - Error Mesage
+2024-01-26 20:07:18 WARN  C56_Log4J_Properties:18 - Warn Message
+2024-01-26 20:07:18 INFO  C56_Log4J_Properties:19 - Info Message
+2024-01-26 20:07:18 DEBUG C56_Log4J_Properties:20 - Debug Message
+2024-01-26 20:07:18 TRACE C56_Log4J_Properties:21 - Trace Message
+2024-01-26 22:57:48 INFO  C58_Log4JTest:29 - Go to URL: https://healthunify.com/bmicalculator/
+2024-01-26 22:57:48 INFO  C58_Log4JTest:33 - Entering weight
+2024-01-26 22:57:48 INFO  C58_Log4JTest:36 - Selecting kilograms
+2024-01-26 22:57:48 INFO  C58_Log4JTest:39 - Selecting height in feet
+2024-01-26 22:57:48 INFO  C58_Log4JTest:42 - Selecting height in inchs
+2024-01-26 23:50:09 INFO  C58_Log4JTest:30 - Go to URL: https://healthunify.com/bmicalculator/
+2024-01-26 23:50:09 INFO  C58_Log4JTest:34 - Entering weight
+2024-01-26 23:50:52 INFO  C58_Log4JTest:30 - Go to URL: https://healthunify.com/bmicalculator/
+2024-01-26 23:50:53 INFO  C58_Log4JTest:34 - Entering weight
+2024-01-26 23:50:54 INFO  C58_Log4JTest:39 - Selecting kilograms
+2024-01-26 23:50:54 INFO  C58_Log4JTest:44 - Selecting height in feet
+2024-01-26 23:50:55 INFO  C58_Log4JTest:49 - Selecting height in inchs
+2024-01-26 23:52:23 INFO  C58_Log4JTest:30 - Go to URL: https://healthunify.com/bmicalculator/
+2024-01-26 23:52:26 INFO  C58_Log4JTest:34 - Entering weight
+2024-01-26 23:52:26 INFO  C58_Log4JTest:39 - Selecting kilograms
+2024-01-26 23:52:27 INFO  C58_Log4JTest:44 - Selecting height in feet
+2024-01-26 23:52:27 INFO  C58_Log4JTest:49 - Selecting height in inchs
+2024-01-27 00:02:53 INFO  C58_Log4JTest:30 - Go to URL: https://healthunify.com/bmicalculator/
+2024-01-27 00:02:55 INFO  C58_Log4JTest:34 - Entering weight
+2024-01-27 00:02:55 INFO  C58_Log4JTest:39 - Selecting kilograms
+2024-01-27 00:02:56 INFO  C58_Log4JTest:44 - Selecting height in feet
+2024-01-27 00:02:57 INFO  C58_Log4JTest:49 - Selecting height in inchs
+2024-01-27 00:02:57 INFO  C58_Log4JTest:58 - Getting SI(si) unit value
+2024-01-27 00:02:57 INFO  C58_Log4JTest:61 - Getting SI(us) unit value
+2024-01-27 00:02:57 INFO  C58_Log4JTest:64 - Getting SI(uk) unit value
+2024-01-27 00:02:57 INFO  C58_Log4JTest:67 - Getting BMI category
