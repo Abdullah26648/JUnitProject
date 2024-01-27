@@ -55,8 +55,8 @@ public abstract class TestBase {
 
     @After
     public void tearDown() throws InterruptedException {
-        Thread.sleep(3000);
-        driver.quit();
+//        Thread.sleep(3000);
+//        driver.quit();
     }
 
     public static Cell getCellValue(String excelFileName, String sheetName, int rowIndex, int cellIndex) throws IOException {

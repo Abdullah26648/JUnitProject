@@ -50,6 +50,11 @@ public class C07_Locators {
         System.out.println("classNameElement = " + classNameElement.getText());
 
     }
+    @Test
+    public void Mytest() {
+        driver.get("https://www.trendyol.com/sr?wc=109461&sst=PRICE_BY_DESC");
+        System.out.println(driver.findElement(By.xpath("(//div[@class='prc-box-dscntd'])[2]")).getText());
+    }
 
     @AfterClass
     public static void tearDown(){

@@ -25,7 +25,7 @@ public class C13_DynamicXpath {
         Text:
     //tagname[.='text name’]
     //*[contains(text(),'piece of text’)]
-    //*[text( )= 'text name’]
+    //*[text()= 'text name’]
     //*[.='text name’]
 */
 
