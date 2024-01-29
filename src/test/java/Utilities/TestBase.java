@@ -3,6 +3,7 @@ package Utilities;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
+import com.github.javafaker.Faker;
 import org.apache.commons.io.FileUtils;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Workbook;
@@ -11,6 +12,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -40,15 +42,20 @@ public abstract class TestBase {
     modifier'ı seçiyoruz.
 */
 
+    protected Faker faker;
     protected WebDriver driver;
+
+    protected Actions actions;
     protected static ExtentReports extentReports; // Raporlama işlemini gerçekleştirir
     protected static ExtentSparkReporter extentHtmlReporter; // Raporu HTML olarak düzenler
     protected static ExtentTest extentTest; // Testimizin pass veya fail olduğunu saklayan objemiz. Ekran görüntüleri için de kullanılır
 
 
     @Before
-    public void setUp(){
+    public void setUp() {
         driver = new ChromeDriver();
+        actions = new Actions(driver);
+        faker = new Faker();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
     }
@@ -61,7 +68,7 @@ public abstract class TestBase {
 
     public static Cell getCellValue(String excelFileName, String sheetName, int rowIndex, int cellIndex) throws IOException {
 
-        FileInputStream fileInputStream = new FileInputStream(System.getProperty("user.dir")+"\\resources\\"+excelFileName+".xlsx");
+        FileInputStream fileInputStream = new FileInputStream(System.getProperty("user.dir") + "\\resources\\" + excelFileName + ".xlsx");
 
         Workbook workbook = WorkbookFactory.create(fileInputStream);
 
@@ -72,15 +79,15 @@ public abstract class TestBase {
     public void getFullPageScreenShot() {
 
         //1. Adım: Type casting
-        TakesScreenshot ts = (TakesScreenshot)driver;
+        TakesScreenshot ts = (TakesScreenshot) driver;
 
         //2. Adım: getScreenshotAs() metodu
         File ss = ts.getScreenshotAs(OutputType.FILE);
 
         //3. Adım: Alınan screeenshot dosyasını bir hedefe kopyala
-        String now = new SimpleDateFormat("yyMMddhhmmss").format(new Date())+System.nanoTime();
+        String now = new SimpleDateFormat("yyMMddhhmmss").format(new Date()) + System.nanoTime();
         try {
-            FileUtils.copyFile(ss, new File(".\\test-output\\screenshots\\FullScreenshot"+now+".png") );
+            FileUtils.copyFile(ss, new File(".\\test-output\\screenshots\\FullScreenshot" + now + ".png"));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -88,15 +95,15 @@ public abstract class TestBase {
 
     }
 
-    public void getSpecificElementsScreenShot(WebElement element){
+    public void getSpecificElementsScreenShot(WebElement element) {
 
         //1. Adım: Locate edilen web element ile getScreenshotAs() metodunu kullan
         File ss = element.getScreenshotAs(OutputType.FILE);
 
         //2. Adım: Screenshot'ı ilgili yere kopyala
-        String now = new SimpleDateFormat("yyMMddhhmmss").format(new Date())+System.nanoTime();
+        String now = new SimpleDateFormat("yyMMddhhmmss").format(new Date()) + System.nanoTime();
         try {
-            FileUtils.copyFile(ss, new File(".\\test-output\\screenshots\\specificElementScreenShot"+now+".png") );
+            FileUtils.copyFile(ss, new File(".\\test-output\\screenshots\\specificElementScreenShot" + now + ".png"));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -104,9 +111,9 @@ public abstract class TestBase {
     }
 
     //Bu metod parantez içinde belirtilen web table'ın istediğimiz satır ve sütunundaki değeri String olarak döner.
-    public String getTableCell(WebElement table, int row, int cell){
+    public String getTableCell(WebElement table, int row, int cell) {
 
-        return table.findElement(By.xpath(".//tbody/tr["+row+"]/td["+cell+"]")).getText();
+        return table.findElement(By.xpath(".//tbody/tr[" + row + "]/td[" + cell + "]")).getText();
 
     }
 
@@ -145,7 +152,7 @@ public abstract class TestBase {
     }
 
     //Bu metod explicit wait kullanarak bir web elementi locate eder
-    public WebElement waitForVisibility(By by){
+    public WebElement waitForVisibility(By by) {
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         return wait.until(ExpectedConditions.visibilityOfElementLocated(by));
