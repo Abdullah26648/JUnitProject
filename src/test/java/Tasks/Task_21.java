@@ -3,7 +3,11 @@ package Tasks;
 import Utilities.TestBase;
 import org.junit.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
+import static java.lang.Thread.sleep;
 import static org.junit.Assert.assertEquals;
 
 public class Task_21 extends TestBase {
@@ -22,40 +26,62 @@ public class Task_21 extends TestBase {
     Flash web elements before use
     */
     @Test
-    public void Task_21() {
+    public void Task_21() throws InterruptedException {
 //      Go to https://form.jotform.com/73302671092956
         driver.get("https://form.jotform.com/73302671092956");
 
+//      Flash web elements before use
 //      Click on start
-        driver.findElement(By.id("jfCard-welcome-start")).click();
+        WebElement elementToFlash1 = driver.findElement(By.id("jfCard-welcome-start"));
+        flashElement(driver, elementToFlash1);
+        elementToFlash1.click();
 
 
 //      Enter firstname and lastname
-        driver.findElement(By.name("q1_name[first]")).sendKeys(faker.name().firstName());
-        driver.findElement(By.name("q1_name[last]")).sendKeys(faker.name().lastName());
+        WebElement elementToFlash2 = driver.findElement(By.name("q1_name[first]"));
+        flashElement(driver, elementToFlash2);
+        elementToFlash2.sendKeys(faker.name().firstName());
+
+        WebElement elementToFlash3 = driver.findElement(By.name("q1_name[last]"));
+        flashElement(driver, elementToFlash3);
+        elementToFlash3.sendKeys(faker.name().lastName());
 
 //      Click on next
-        driver.findElement(By.xpath("//button[@data-testid='nextButton_0']")).click();
+        WebElement elementToFlash4 = driver.findElement(By.xpath("//button[@data-testid='nextButton_0']"));
+        flashElement(driver, elementToFlash4);
+        elementToFlash4.click();
 
 //      Enter email
-        driver.findElement(By.name("q2_email")).sendKeys(faker.internet().emailAddress());
+        WebElement elementToFlash5 = driver.findElement(By.name("q2_email"));
+        flashElement(driver, elementToFlash5);
+        elementToFlash5.sendKeys(faker.internet().emailAddress());
 
 //      Click on next
-        driver.findElement(By.xpath("//button[@data-testid='nextButton_1']")).click();
+        WebElement elementToFlash6 = driver.findElement(By.xpath("//button[@data-testid='nextButton_1']"));
+        flashElement(driver, elementToFlash6);
+        elementToFlash6.click();
 
 //      Enter message
-        driver.findElement(By.id("label_3")).sendKeys(faker.lorem().sentence());
+        WebElement elementToFlash7 = driver.findElement(By.xpath("//textarea[@class='jfInput-textarea form-textarea']"));
+        flashElement(driver, elementToFlash7);
+        elementToFlash7.sendKeys(faker.lorem().sentence());
 
 //      Click on next
+        WebElement elementToFlash8 = driver.findElement(By.xpath("//button[@data-testid='nextButton_2']"));
+        flashElement(driver, elementToFlash8);
         driver.findElement(By.xpath("//button[@data-testid='nextButton_2']")).click();
 
 //      Handle captcha
         driver.switchTo().frame(0);
         String first = driver.findElement(By.xpath("//span[@id='number']")).getText();
+        flashElement(driver, driver.findElement(By.xpath("//span[@id='number']")));
         String mathSymbol = driver.findElement(By.xpath("//span[@id='function']")).getText();
+        flashElement(driver, driver.findElement(By.xpath("//span[@id='function']")));
         String second = driver.findElement(By.xpath("//span[@id='number2']")).getText();
+        flashElement(driver, driver.findElement(By.xpath("//span[@id='number2']")));
         String result = basicMath(first, mathSymbol, second);
         driver.findElement(By.name("equal")).sendKeys(result);
+        flashElement(driver, driver.findElement(By.name("equal")));
 
 //      Click on submit
         driver.switchTo().defaultContent();
@@ -65,10 +91,20 @@ public class Task_21 extends TestBase {
         String submitmessage = driver.findElement(By.xpath("//div[@class='jfThankYou-description form-subHeader']")).getText();
         assertEquals("Your submission has been received!",submitmessage );
 
-//      Flash web elements before use
-
-
     }
+
+    private static void flashElement(WebDriver driver, WebElement element) throws InterruptedException {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        String originalStyle = element.getAttribute("style");
+
+        for (int i = 0; i < 3; i++) {
+            js.executeScript("arguments[0].setAttribute('style', 'border: 2px solid red;');", element);
+            sleep(200);
+            js.executeScript("arguments[0].setAttribute('style', '" + originalStyle + "');", element);
+            sleep(200);
+        }
+    }
+
     public String basicMath(String first, String mathSymbol, String second) {
         try {
             double num1 = Double.parseDouble(first);
@@ -82,7 +118,7 @@ public class Task_21 extends TestBase {
                 case "-":
                     result = num1 - num2;
                     break;
-                case "*":
+                case "x":
                     result = num1 * num2;
                     break;
                 case "/":

@@ -24,6 +24,7 @@ public class C45_FileDownload extends TestBase {
         //    Verify if the file downloaded successfully.
         boolean isFileExist = Files.exists(Path.of(System.getProperty("user.home")+"/Downloads/selenium-snapshot.png"));
         assertTrue(isFileExist);
+
     }
 
 }
