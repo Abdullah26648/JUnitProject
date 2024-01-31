@@ -1,4 +1,4 @@
-package Tasks;
+package Task_Solution;
 
 import Utilities.TestBase;
 import org.junit.Test;

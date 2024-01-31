@@ -7,6 +7,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.interactions.Actions;
 
+import static junit.framework.TestCase.assertEquals;
+
 public class Task_08_Faker extends TestBase {
     /*
     1) Open the browser
@@ -47,7 +49,8 @@ public class Task_08_Faker extends TestBase {
         actions.sendKeys(Keys.ENTER).perform();
 
 //      4)Verify alert access 10,danger empty
-        
+        assertEquals(10,driver.findElements(By.xpath("//div[@class='alert py-2 alert-success']")).size());
+        assertEquals(0,driver.findElements(By.xpath("//div[@class='alert py-2 alert-danger']")).size());
 
 
     }

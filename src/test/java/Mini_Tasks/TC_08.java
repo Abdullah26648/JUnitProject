@@ -1,4 +1,4 @@
-package Tasks;
+package Mini_Tasks;
 
 import org.junit.AfterClass;
 import org.junit.BeforeClass;

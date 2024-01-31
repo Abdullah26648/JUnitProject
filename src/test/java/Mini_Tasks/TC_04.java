@@ -1,4 +1,4 @@
-package Tasks;
+package Mini_Tasks;
 
 import Utilities.TestBase;
 import org.junit.Test;

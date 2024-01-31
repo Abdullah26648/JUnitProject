@@ -1,4 +1,4 @@
-package Tasks;
+package Mini_Tasks;
 
 import org.junit.*;
 import org.openqa.selenium.WebDriver;

@@ -1,4 +1,4 @@
-package Tasks;
+package Mini_Tasks;
 
 import org.junit.Test;
 import org.openqa.selenium.By;
