@@ -46,7 +46,7 @@ public class Task_18_DragAndDrop {
         String secondLocation = draggable.getLocation().toString();
 
 //      Eğer başlangıç konumuyla aynıysa, bu adım başarılı kabul edilir.
-        assertEquals(firstLocation,secondLocation); // Roney hocaya sorulacak !!!
+        assertEquals(firstLocation,secondLocation);
 
 //      "draggable" elementini "target" elementine sürükleyin.
         WebElement target = driver.findElement(By.id("target"));
